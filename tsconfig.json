@@ -19,7 +19,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./app/*"]
     }
   },
   "include": [
@@ -30,5 +30,12 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "app/routes/**",
+    "app/components/**",
+    "app/lib/lovable-error-reporting.ts",
+    "app/lib/error-capture.ts",
+    "app/lib/error-page.ts"
+  ]
 }
