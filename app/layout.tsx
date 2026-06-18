@@ -16,12 +16,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Airish Absin — UI/UX & Creative Designer",
+  title: "Airish Jane Absin",
   description:
     "UI/UX and Creative Designer crafting thoughtful digital products and visual identities. Based in Iloilo, working globally.",
   openGraph: {
-    title: "Airish Absin — UI/UX & Creative Designer",
-    description: "Crafting experiences that matter. Portfolio of Airish Absin.",
+    title: "Airish Jane Absin",
+    description: "Crafting experiences that matter. Portfolio of Airish Jane Absin.",
     type: "website",
   },
 };
