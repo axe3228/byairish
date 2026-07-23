@@ -4,7 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import heroImg from "@/assets/hero-spheres.jpg";
 import logo from "@/assets/logo.svg";
-import { Sparkles, Search, Gem, Compass, ArrowUpRight } from "lucide-react";
+import myschoolImg from "@/assets/work/work-myschool-suite.png";
+import { Sparkles, Search, Gem, Compass } from "lucide-react";
 
 function LinkedinIcon({ size = 16 }: { size?: number }) {
   return (
@@ -65,12 +66,12 @@ const experiences = [
 ];
 
 const projects = [
-  { title: "MySchool Suite", tag: "WEB · PRODUCT DESIGN", color: "from-slate-700 to-slate-900", category: "SaaS" },
-  { title: "Ladmins", tag: "WEB · ADMIN INTERFACE", color: "from-amber-900 to-stone-900", category: "B2B" },
-  { title: "Brand Stylescapes", tag: "BRANDING · IDENTITY", color: "from-indigo-800 to-slate-900", category: "Branding" },
+  { title: "MySchool Suite", tag: "UI/UX · PRODUCT DESIGN", image: myschoolImg, category: "UI/UX" },
+  { title: "Ladmins", tag: "UI/UX · ADMIN INTERFACE", color: "from-slate-800 to-zinc-950", category: "B2B" },
+  { title: "Brand Stylescapes", tag: "BRANDING · IDENTITY", color: "from-indigo-900 to-slate-950", category: "Branding" },
   { title: "Innovate Charlotte", tag: "BRAND · IDENTITY", color: "from-violet-900 to-purple-950", category: "Branding" },
-  { title: "Kumik Telecom", tag: "BRANDING · ADVERTISING", color: "from-orange-800 to-red-950", category: "Branding" },
-  { title: "ZIP", tag: "B2C · ECOMMERCE", color: "from-sky-800 to-blue-950", category: "B2C" },
+  { title: "Kumik Telecom", tag: "BRANDING · ADVERTISING", color: "from-orange-900 to-red-950", category: "Branding" },
+  { title: "ZIP", tag: "B2C · ECOMMERCE", color: "from-sky-900 to-blue-950", category: "B2C" },
 ];
 
 const filters = ["B2B", "B2C", "Branding", "UI/UX", "All"];
@@ -303,20 +304,31 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {filtered.map((p) => (
               <button
                 key={p.title}
                 type="button"
-                className="group text-left surface-elevated border border-border/60 rounded-xl overflow-hidden hover:border-primary/60 transition-all duration-300 hover:-translate-y-1"
+                className="group relative aspect-[4/5] overflow-hidden bg-iris-noir-black text-left transition-transform duration-300 hover:-translate-y-1"
               >
-                <div className={`aspect-[4/3] bg-gradient-to-br ${p.color} relative overflow-hidden`}>
-                  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_30%_30%,white,transparent_50%)]" />
-                  <ArrowUpRight className="absolute top-4 right-4 text-foreground/40 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" size={20} />
-                </div>
-                <div className="p-5">
-                  <div className="font-sans font-light text-[12px] uppercase tracking-[0.15em] text-primary mb-2">{p.tag}</div>
-                  <h3 className="font-serif text-2xl text-iris-cotton">{p.title}</h3>
+                {"image" in p && p.image ? (
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    fill
+                    className="object-cover object-top z-0"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                ) : (
+                  <div className={`absolute inset-0 z-0 bg-gradient-to-br ${"color" in p ? p.color : "from-slate-800 to-zinc-950"}`} />
+                )}
+                <div className="work-card-gradient absolute inset-0 z-10 pointer-events-none" />
+                <div className="work-card-tint absolute inset-0 z-[11] pointer-events-none" />
+                <div className="absolute inset-0 z-20 flex flex-col justify-end p-8 pointer-events-none">
+                  <div className="font-syncopate text-[12px] uppercase tracking-[0.15em] text-iris-cotton mb-3">
+                    {p.tag}
+                  </div>
+                  <h3 className="font-serif text-4xl leading-[0.95] text-iris-cotton">{p.title}</h3>
                 </div>
               </button>
             ))}
