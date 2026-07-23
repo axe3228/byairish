@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import heroImg from "@/assets/hero-spheres.jpg";
 import logo from "@/assets/logo.svg";
-import { Layout, Search, Heart, Compass, ArrowUpRight } from "lucide-react";
+import { Sparkles, Search, Gem, Compass, ArrowUpRight } from "lucide-react";
 
 function LinkedinIcon({ size = 16 }: { size?: number }) {
   return (
@@ -25,10 +25,10 @@ function DribbbleIcon({ size = 16 }: { size?: number }) {
 const nav = ["About", "Experience", "Work", "Process", "Contact"];
 
 const services = [
-  { icon: Layout, title: "UI Design", desc: "Clean, modern interfaces that balance form and function with intuitive flow." },
-  { icon: Search, title: "UX Research", desc: "Turning insights into clear design directions rooted in real user behavior." },
-  { icon: Heart, title: "Branding", desc: "Visual identities with personality — cohesive, memorable, intentional." },
-  { icon: Compass, title: "Art Direction", desc: "Bringing concepts to life with a sharp eye for narrative and detail." },
+  { icon: Sparkles, title: "UI Design", desc: "Pixel-perfect interfaces that speak fluently across every screen and device." },
+  { icon: Search, title: "UX Research", desc: "Deep user empathy translated into friction-free, intuitive experiences." },
+  { icon: Gem, title: "Branding", desc: "Visual identities that are distinctive, durable, and unmistakably yours." },
+  { icon: Compass, title: "Art Direction", desc: "Cohesive creative vision from concept to final deliverable, every time." },
 ];
 
 const skills = ["UI Design", "UX Research", "Brand Identity", "Design Systems", "Prototyping", "Web Design"];
@@ -64,12 +64,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
+      {/* Navbar */}
       <header className="sticky top-0 z-50 bg-iris-noir-black">
         <div className="max-w-7xl mx-auto px-12 py-5 flex items-center gap-8">
           <a href="#" aria-label="Airish Absin home" className="shrink-0">
             <Image src={logo} alt="Airish Absin" width={179} height={25} priority />
           </a>
-          <nav className="hidden md:flex flex-1 items-center justify-evenly font-sans text-[11px] tracking-[0.14em] uppercase text-[#EDEBDD]">
+          <nav className="hidden md:flex flex-1 items-center justify-evenly font-sans text-[11px] tracking-[0.14em] uppercase text-iris-cotton">
             {nav.map((n) => (
               <a key={n} href={`#${n.toLowerCase()}`} className="hover:text-white transition-colors">
                 {n}
@@ -78,18 +79,19 @@ export default function Home() {
           </nav>
           <button
             type="button"
-            className="hidden md:inline-flex shrink-0 font-sans text-[11px] tracking-[0.14em] uppercase border border-[#810100] text-[#EDEBDD] px-5 py-2.5 hover:bg-[#810100]/10 transition-colors"
+            className="hidden md:inline-flex shrink-0 font-sans text-[11px] tracking-[0.14em] uppercase border border-primary text-iris-cotton px-5 py-2.5 hover:bg-primary/10 transition-colors"
           >
             View CV
           </button>
         </div>
       </header>
 
+      {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-12 pt-12 pb-24">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2.5 border border-primary px-3 py-1.5 mb-8 font-sans text-[15px] tracking-[0.14em] uppercase text-[#EDEBDD] bg-primary/10 w-full max-w-[478px]">
+              <div className="inline-flex items-center gap-2.5 border border-primary px-3 py-1.5 mb-8 font-sans text-[15px] tracking-[0.14em] uppercase text-iris-cotton bg-primary/10 w-full max-w-[478px]">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0" />
                 Available for new projects
               </div>
@@ -99,7 +101,7 @@ export default function Home() {
                 UI/UX & Creative Designer
               </div>
 
-              <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] leading-[1.05] mb-8 text-[#EDEBDD]">
+              <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[0.92] mb-8 text-iris-cotton">
                 Crafting
                 <br />
                 <span className="italic text-primary">Experiences</span>
@@ -107,7 +109,7 @@ export default function Home() {
                 that Matter
               </h1>
 
-              <p className="text-[#EDEBDD]/75 max-w-md mb-12 leading-relaxed text-sm md:text-[22px]">
+              <p className="text-iris-cotton/75 max-w-md mb-12 leading-relaxed text-sm md:text-[22px]">
                 I design thoughtful digital products and visual identities that balance bold aesthetics with intuitive usability. Based in Iloilo, working globally.
               </p>
 
@@ -118,11 +120,11 @@ export default function Home() {
                   { n: "4", l: "B2C\nProjects" },
                 ].map((s) => (
                   <div key={s.l}>
-                    <div className="font-syncopate text-4xl md:text-5xl text-[#EDEBDD] leading-none">
+                    <div className="font-syncopate text-4xl md:text-5xl text-iris-cotton leading-none">
                       {s.n}
                       <span className="text-primary text-4xl md:text-5xl">+</span>
                     </div>
-                    <div className="text-[13px] uppercase tracking-[0.14em] text-[#EDEBDD]/65 mt-2 whitespace-pre-line">{s.l}</div>
+                    <div className="text-[13px] uppercase tracking-[0.14em] text-iris-cotton/65 mt-2 whitespace-pre-line">{s.l}</div>
                   </div>
                 ))}
               </div>
@@ -154,61 +156,79 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About */}
       <section id="about" className="border-t border-border/50">
-        <div className="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16">
+        <div className="max-w-7xl mx-auto px-12 py-24 grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="eyebrow mb-6">✦ About Me</div>
-            <h2 className="text-5xl leading-tight mb-8">
+            <div className="flex items-center gap-3 mb-6 font-sans text-[15px] tracking-[0.14em] uppercase text-primary">
+              <span className="h-px w-8 bg-primary shrink-0" />
+              About Me
+            </div>
+            <h2 className="font-serif text-[55px] leading-[0.95] mb-8 text-iris-cotton">
               Design with<br />
-              <span className="italic-serif">purpose</span> &<br />
+              <span className="italic text-primary">purpose</span> &<br />
               precision
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-5">
+            <p className="text-iris-cotton leading-relaxed mb-5 text-sm md:text-[22px]">
               I&apos;m a UI/UX and Creative Designer with over 6 years of experience turning complex problems into clean, compelling interfaces. My work lives at the intersection of strategy, craft, and storytelling.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-10">
+            <p className="text-iris-cotton leading-relaxed mb-10 text-sm md:text-[22px]">
               Whether designing a product from zero or refreshing a legacy brand, I bring structure, intention, and a sharp eye for detail to every project I take on.
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-x-5 gap-y-5">
               {skills.map((s) => (
-                <span key={s} className="text-xs px-3 py-1.5 rounded-md surface-elevated border border-border/60 text-muted-foreground">{s}</span>
+                <span
+                  key={s}
+                  className="inline-flex items-center justify-center font-sans font-light text-[12px] uppercase tracking-[0.15em] text-iris-cotton border border-iris-cotton px-6 py-2.5"
+                >
+                  {s}
+                </span>
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-6 self-center content-start">
             {services.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="surface-elevated border border-border/60 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
-                <div className="w-10 h-10 rounded-lg bg-primary/15 flex items-center justify-center mb-4 text-primary">
-                  <Icon size={18} />
+              <div
+                key={title}
+                className="bg-iris-noir-black min-h-[200px] px-6 py-10 flex flex-col items-start hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="w-10 h-10 shrink-0 border border-primary flex items-center justify-center mb-5 text-primary">
+                  <Icon size={18} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-sm uppercase tracking-widest mb-2 font-sans font-medium">{title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+                <h3 className="font-syncopate text-sm uppercase tracking-[0.12em] mb-2 text-iris-cotton shrink-0">
+                  {title}
+                </h3>
+                <p className="font-sans text-sm text-iris-cotton leading-snug">{desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Experience */}
       <section id="experience" className="border-t border-border/50">
-        <div className="max-w-6xl mx-auto px-6 py-24">
-          <div className="eyebrow mb-6">✦ Where I&apos;ve Worked</div>
-          <h2 className="text-5xl leading-tight mb-16 max-w-3xl">
+        <div className="max-w-7xl mx-auto px-12 py-24">
+          <div className="flex items-center gap-3 mb-6 font-sans text-[15px] tracking-[0.14em] uppercase text-primary">
+            <span className="h-px w-8 bg-primary shrink-0" />
+            Where I&apos;ve Worked
+          </div>
+          <h2 className="font-serif text-5xl leading-[0.95] mb-16 max-w-3xl text-iris-cotton">
             Collaborative work across<br />
-            <span className="italic-serif">beauty, finance,</span> and <span className="italic-serif">beyond</span>
+            <span className="italic text-primary">beauty, finance,</span> and <span className="italic text-primary">beyond</span>
           </h2>
           <div className="grid md:grid-cols-4 gap-6">
             {experiences.map((e) => (
               <div key={e.company} className="surface-elevated border border-border/60 rounded-xl p-6">
                 <div className="flex justify-between items-center mb-5">
-                  <span className="text-[10px] uppercase tracking-widest text-muted-foreground">{e.status}</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary text-primary-foreground">{e.status.includes("Current") ? "Now" : "Past"}</span>
+                  <span className="text-[13px] uppercase tracking-[0.14em] text-iris-cotton/65">{e.status}</span>
+                  <span className="text-[13px] px-2 py-0.5 rounded-full bg-primary text-primary-foreground tracking-[0.14em] uppercase">{e.status.includes("Current") ? "Now" : "Past"}</span>
                 </div>
-                <h3 className="font-serif text-2xl mb-1">{e.company}</h3>
-                <p className="text-xs text-muted-foreground mb-1">{e.role}</p>
-                <p className="text-xs text-muted-foreground mb-5">{e.type}</p>
+                <h3 className="font-serif text-2xl mb-1 text-iris-cotton">{e.company}</h3>
+                <p className="text-[13px] text-iris-cotton/65 mb-1">{e.role}</p>
+                <p className="text-[13px] text-iris-cotton/65 mb-5">{e.type}</p>
                 <div className="flex flex-wrap gap-1.5">
                   {e.tags.map((t) => (
-                    <span key={t} className="text-[10px] px-2 py-1 rounded surface border border-border/60 text-muted-foreground">{t}</span>
+                    <span key={t} className="text-[13px] px-2 py-1 rounded surface border border-border/60 text-iris-cotton/65 tracking-[0.14em]">{t}</span>
                   ))}
                 </div>
               </div>
@@ -217,14 +237,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Work */}
       <section id="work" className="border-t border-border/50">
-        <div className="max-w-6xl mx-auto px-6 py-24">
+        <div className="max-w-7xl mx-auto px-12 py-24">
           <div className="flex items-end justify-between flex-wrap gap-6 mb-12">
             <div>
-              <div className="eyebrow mb-6">✦ Selected Works</div>
-              <h2 className="text-5xl leading-tight">
+              <div className="flex items-center gap-3 mb-6 font-sans text-[15px] tracking-[0.14em] uppercase text-primary">
+                <span className="h-px w-8 bg-primary shrink-0" />
+                Selected Works
+              </div>
+              <h2 className="font-serif text-5xl leading-[0.95] text-iris-cotton">
                 Projects that<br />
-                <span className="italic-serif">define</span> the craft
+                <span className="italic text-primary">define</span> the craft
               </h2>
             </div>
             <div className="flex gap-2 flex-wrap">
@@ -233,10 +257,10 @@ export default function Home() {
                   key={f}
                   type="button"
                   onClick={() => setFilter(f)}
-                  className={`text-xs uppercase tracking-widest px-4 py-2 rounded-md border transition-all ${
+                  className={`text-[13px] uppercase tracking-[0.14em] px-4 py-2 rounded-md border transition-all ${
                     filter === f
                       ? "bg-primary text-primary-foreground border-primary"
-                      : "surface-elevated border-border/60 text-muted-foreground hover:text-foreground"
+                      : "surface-elevated border-border/60 text-iris-cotton/65 hover:text-iris-cotton"
                   }`}
                 >
                   {f}
@@ -256,8 +280,8 @@ export default function Home() {
                   <ArrowUpRight className="absolute top-4 right-4 text-foreground/40 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" size={20} />
                 </div>
                 <div className="p-5">
-                  <div className="text-[10px] uppercase tracking-widest text-primary mb-2">{p.tag}</div>
-                  <h3 className="font-serif text-2xl">{p.title}</h3>
+                  <div className="text-[13px] uppercase tracking-[0.14em] text-primary mb-2">{p.tag}</div>
+                  <h3 className="font-serif text-2xl text-iris-cotton">{p.title}</h3>
                 </div>
               </button>
             ))}
@@ -265,49 +289,56 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Process */}
       <section id="process" className="border-t border-border/50">
-        <div className="max-w-6xl mx-auto px-6 py-24">
-          <div className="eyebrow mb-6">✦ My Process</div>
-          <h2 className="text-5xl leading-tight mb-16">
-            How I <span className="italic-serif">shape</span><br />
+        <div className="max-w-7xl mx-auto px-12 py-24">
+          <div className="flex items-center gap-3 mb-6 font-sans text-[15px] tracking-[0.14em] uppercase text-primary">
+            <span className="h-px w-8 bg-primary shrink-0" />
+            My Process
+          </div>
+          <h2 className="font-serif text-5xl leading-[0.95] mb-16 text-iris-cotton">
+            How I <span className="italic text-primary">shape</span><br />
             ideas into impact
           </h2>
           <div className="grid md:grid-cols-4 gap-8">
             {process.map((p) => (
               <div key={p.step}>
-                <div className="text-xs text-primary tracking-widest mb-4">— {p.step}</div>
-                <h3 className="font-serif text-2xl leading-tight mb-4 whitespace-pre-line">{p.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                <div className="text-[13px] text-primary tracking-[0.14em] uppercase mb-4">— {p.step}</div>
+                <h3 className="font-serif text-2xl leading-[0.95] mb-4 whitespace-pre-line text-iris-cotton">{p.title}</h3>
+                <p className="text-[13px] text-iris-cotton/65 leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Contact */}
       <section id="contact" className="border-t border-border/50 relative overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "var(--gradient-radial-red)" }} />
-        <div className="relative max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16">
+        <div className="relative max-w-7xl mx-auto px-12 py-24 grid md:grid-cols-2 gap-16">
           <div>
-            <div className="eyebrow mb-6">✦ Get In Touch</div>
-            <h2 className="text-5xl leading-tight mb-8">
+            <div className="flex items-center gap-3 mb-6 font-sans text-[15px] tracking-[0.14em] uppercase text-primary">
+              <span className="h-px w-8 bg-primary shrink-0" />
+              Get In Touch
+            </div>
+            <h2 className="font-serif text-5xl leading-[0.95] mb-8 text-iris-cotton">
               Let&apos;s build<br />
-              <span className="italic-serif">something</span><br />
+              <span className="italic text-primary">something</span><br />
               great
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-10 max-w-md">
+            <p className="text-iris-cotton/75 leading-relaxed mb-10 max-w-md text-sm md:text-base">
               Whether you have a project in mind, want to collaborate, or just want to say hello — my inbox is always open.
             </p>
-            <div className="space-y-5 text-sm">
+            <div className="space-y-5 text-sm text-iris-cotton">
               <div>
-                <div className="text-[10px] uppercase tracking-widest text-primary mb-1">Email</div>
+                <div className="text-[13px] uppercase tracking-[0.14em] text-primary mb-1">Email</div>
                 <div>airisxarga@email.com</div>
               </div>
               <div>
-                <div className="text-[10px] uppercase tracking-widest text-primary mb-1">Based In</div>
+                <div className="text-[13px] uppercase tracking-[0.14em] text-primary mb-1">Based In</div>
                 <div>Iloilo, Philippines</div>
               </div>
               <div>
-                <div className="text-[10px] uppercase tracking-widest text-primary mb-1">Status</div>
+                <div className="text-[13px] uppercase tracking-[0.14em] text-primary mb-1">Status</div>
                 <div>Open to full-time & freelance</div>
               </div>
             </div>
@@ -325,8 +356,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Footer */}
       <footer className="border-t border-border/50">
-        <div className="max-w-6xl mx-auto px-6 py-8 flex flex-wrap justify-between gap-4 text-xs text-muted-foreground">
+        <div className="max-w-7xl mx-auto px-12 py-8 flex flex-wrap justify-between gap-4 text-[13px] tracking-[0.14em] text-iris-cotton/65 uppercase">
           <div>© 2025 AIRISH ABSIN · ALL RIGHTS RESERVED</div>
           <div>Designed & coded with intention</div>
         </div>
@@ -353,26 +385,26 @@ function ContactForm() {
         { label: "Tell me more", placeholder: "Share your company, project, timeline, budget…", type: "textarea" },
       ].map((f) => (
         <div key={f.label}>
-          <label className="text-[10px] uppercase tracking-widest text-primary mb-2 block">{f.label}</label>
+          <label className="text-[13px] uppercase tracking-[0.14em] text-primary mb-2 block">{f.label}</label>
           {f.type === "input" ? (
             <input
               required
               placeholder={f.placeholder}
-              className="w-full surface-elevated border border-border/60 rounded-md px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary transition"
+              className="w-full surface-elevated border border-border/60 rounded-md px-4 py-3 text-sm text-iris-cotton placeholder:text-iris-cotton/40 focus:outline-none focus:border-primary transition"
             />
           ) : (
             <textarea
               required
               rows={5}
               placeholder={f.placeholder}
-              className="w-full surface-elevated border border-border/60 rounded-md px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary transition resize-none"
+              className="w-full surface-elevated border border-border/60 rounded-md px-4 py-3 text-sm text-iris-cotton placeholder:text-iris-cotton/40 focus:outline-none focus:border-primary transition resize-none"
             />
           )}
         </div>
       ))}
       <button
         type="submit"
-        className="w-full bg-primary text-primary-foreground rounded-md py-3.5 text-xs uppercase tracking-widest font-medium hover:bg-[oklch(0.65_0.23_25)] hover:shadow-[var(--shadow-glow)] transition-all"
+        className="w-full bg-primary text-primary-foreground rounded-md py-3.5 text-[13px] uppercase tracking-[0.14em] font-medium hover:bg-primary/90 hover:shadow-[var(--shadow-glow)] transition-all"
       >
         {sent ? "Message Sent ✓" : "Send Message →"}
       </button>
