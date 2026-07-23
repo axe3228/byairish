@@ -64,23 +64,23 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/50">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#" aria-label="Airish Abrir home">
-            <Image src={logo} alt="Airish Abrir" width={179} height={25} priority />
+      <header className="sticky top-0 z-50 bg-background">
+        <div className="max-w-7xl mx-auto px-12 py-5 flex items-center gap-8">
+          <a href="#" aria-label="Airish Absin home" className="shrink-0">
+            <Image src={logo} alt="Airish Absin" width={179} height={25} priority />
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
+          <nav className="hidden md:flex flex-1 items-center justify-evenly text-[11px] tracking-[0.14em] uppercase text-[#EDEBDD]">
             {nav.map((n) => (
-              <a key={n} href={`#${n.toLowerCase()}`} className="hover:text-foreground transition-colors">
+              <a key={n} href={`#${n.toLowerCase()}`} className="hover:text-white transition-colors">
                 {n}
               </a>
             ))}
           </nav>
           <button
             type="button"
-            className="text-xs tracking-widest uppercase border border-primary/60 text-foreground px-4 py-2 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:shadow-[var(--shadow-glow)]"
+            className="hidden md:inline-flex shrink-0 text-[11px] tracking-[0.14em] uppercase border border-[#810100] text-[#EDEBDD] px-5 py-2.5 hover:bg-[#810100]/10 transition-colors"
           >
-            View Resume
+            View CV
           </button>
         </div>
       </header>
