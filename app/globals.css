@@ -30,6 +30,7 @@
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
   --color-iris-noir-black: var(--iris-noir-black);
+  --color-iris-cherry-red: var(--iris-cherry-red);
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
   --font-syncopate: var(--font-syncopate);
@@ -43,6 +44,8 @@
   --background: #EDEBDD08;
   --foreground: oklch(0.92 0.005 30);
 
+  --iris-cherry-red: #810100;
+
   --surface: oklch(0.19 0.018 20);
   --surface-elevated: oklch(0.22 0.022 22);
 
@@ -52,9 +55,9 @@
   --popover: oklch(0.20 0.020 20);
   --popover-foreground: oklch(0.92 0.005 30);
 
-  --primary: oklch(0.58 0.22 25);          /* signature red */
+  --primary: var(--iris-cherry-red);
   --primary-foreground: oklch(0.98 0 0);
-  --primary-glow: oklch(0.68 0.24 25);
+  --primary-glow: #a01414;
 
   --secondary: oklch(0.24 0.020 20);
   --secondary-foreground: oklch(0.92 0.005 30);
@@ -62,18 +65,18 @@
   --muted: oklch(0.24 0.018 20);
   --muted-foreground: oklch(0.65 0.012 30);
 
-  --accent: oklch(0.58 0.22 25);
+  --accent: var(--iris-cherry-red);
   --accent-foreground: oklch(0.98 0 0);
 
-  --destructive: oklch(0.58 0.22 25);
+  --destructive: var(--iris-cherry-red);
   --destructive-foreground: oklch(0.98 0 0);
 
   --border: oklch(0.28 0.018 22);
   --input: oklch(0.24 0.018 22);
-  --ring: oklch(0.58 0.22 25);
+  --ring: var(--iris-cherry-red);
 
-  --gradient-radial-red: radial-gradient(circle at 50% 0%, oklch(0.38 0.18 25 / 0.35), transparent 60%);
-  --shadow-glow: 0 0 60px -10px oklch(0.58 0.22 25 / 0.4);
+  --gradient-radial-red: radial-gradient(circle at 50% 0%, rgb(129 1 0 / 0.35), transparent 60%);
+  --shadow-glow: 0 0 60px -10px rgb(129 1 0 / 0.4);
   --shadow-card: 0 1px 0 0 oklch(1 0 0 / 0.04) inset, 0 20px 40px -20px oklch(0 0 0 / 0.6);
 }
 
@@ -92,13 +95,13 @@
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; }
-  ::selection { background: oklch(0.58 0.22 25 / 0.4); }
+  ::selection { background: rgb(129 1 0 / 0.4); }
 }
 
 @layer utilities {
   .font-serif { font-family: var(--font-serif); }
   .font-syncopate { font-family: var(--font-syncopate); }
-  .text-accent-red { color: var(--primary); }
+  .text-accent-red { color: var(--iris-cherry-red); }
   .italic-serif { font-style: italic; color: var(--primary); font-family: var(--font-serif); }
   .surface { background-color: var(--surface); }
   .surface-elevated { background-color: var(--surface-elevated); }

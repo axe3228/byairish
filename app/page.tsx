@@ -89,12 +89,12 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-12 pt-12 pb-24">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2.5 border border-[#810100] px-3 py-1.5 mb-8 font-sans text-[10px] tracking-[0.14em] uppercase text-[#EDEBDD]">
+              <div className="inline-flex items-center gap-2.5 border border-primary px-3 py-1.5 mb-8 font-sans text-[15px] tracking-[0.14em] uppercase text-[#EDEBDD] bg-primary/10 w-full max-w-[478px]">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0" />
                 Available for new projects
               </div>
 
-              <div className="flex items-center gap-3 mb-6 font-sans text-[10px] tracking-[0.14em] uppercase text-primary">
+              <div className="flex items-center gap-3 mb-6 font-sans text-[15px] tracking-[0.14em] uppercase text-primary">
                 <span className="h-px w-8 bg-primary shrink-0" />
                 UI/UX & Creative Designer
               </div>
@@ -107,22 +107,22 @@ export default function Home() {
                 that Matter
               </h1>
 
-              <p className="text-[#EDEBDD]/75 max-w-md mb-12 leading-relaxed text-sm md:text-[15px]">
+              <p className="text-[#EDEBDD]/75 max-w-md mb-12 leading-relaxed text-sm md:text-[22px]">
                 I design thoughtful digital products and visual identities that balance bold aesthetics with intuitive usability. Based in Iloilo, working globally.
               </p>
 
               <div className="flex gap-10 md:gap-12">
                 {[
-                  { n: "6", l: "Years Experience" },
-                  { n: "10", l: "B2B Brands" },
-                  { n: "4", l: "B2C Projects" },
+                  { n: "6", l: "Years\nExperience" },
+                  { n: "10", l: "B2B\nBrands" },
+                  { n: "4", l: "B2C\nProjects" },
                 ].map((s) => (
                   <div key={s.l}>
-                    <div className="font-serif text-4xl md:text-5xl text-[#EDEBDD] leading-none">
+                    <div className="font-syncopate text-4xl md:text-5xl text-[#EDEBDD] leading-none">
                       {s.n}
-                      <span className="text-primary text-2xl md:text-3xl">+</span>
+                      <span className="text-primary text-4xl md:text-5xl">+</span>
                     </div>
-                    <div className="font-sans text-[10px] uppercase tracking-[0.14em] text-[#EDEBDD]/65 mt-2">{s.l}</div>
+                    <div className="text-[13px] uppercase tracking-[0.14em] text-[#EDEBDD]/65 mt-2 whitespace-pre-line">{s.l}</div>
                   </div>
                 ))}
               </div>
