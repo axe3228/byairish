@@ -32,6 +32,7 @@
   --color-iris-noir-black: var(--iris-noir-black);
   --color-iris-cherry-red: var(--iris-cherry-red);
   --color-iris-cotton: var(--iris-cotton);
+  --color-iris-maroon: var(--iris-maroon);
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
   --font-syncopate: var(--font-syncopate);
@@ -47,6 +48,7 @@
 
   --iris-cherry-red: #810100;
   --iris-cotton: #EDEBDD;
+  --iris-maroon: #630000;
 
   --surface: oklch(0.19 0.018 20);
   --surface-elevated: oklch(0.22 0.022 22);
