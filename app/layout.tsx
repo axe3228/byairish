@@ -1,18 +1,24 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Syncopate, Syne } from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-serif",
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
 });
 
-const inter = Inter({
+const syne = Syne({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const syncopate = Syncopate({
+  subsets: ["latin"],
+  variable: "--font-syncopate",
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -33,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${cormorant.variable} ${inter.variable} min-h-screen antialiased`}>
+      <body className={`${cormorant.variable} ${syne.variable} ${syncopate.variable} min-h-screen antialiased`}>
         {children}
       </body>
     </html>

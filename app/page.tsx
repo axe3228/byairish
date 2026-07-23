@@ -64,12 +64,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
-      <header className="sticky top-0 z-50 bg-background">
+      <header className="sticky top-0 z-50 bg-iris-noir-black">
         <div className="max-w-7xl mx-auto px-12 py-5 flex items-center gap-8">
           <a href="#" aria-label="Airish Absin home" className="shrink-0">
             <Image src={logo} alt="Airish Absin" width={179} height={25} priority />
           </a>
-          <nav className="hidden md:flex flex-1 items-center justify-evenly text-[11px] tracking-[0.14em] uppercase text-[#EDEBDD]">
+          <nav className="hidden md:flex flex-1 items-center justify-evenly font-sans text-[11px] tracking-[0.14em] uppercase text-[#EDEBDD]">
             {nav.map((n) => (
               <a key={n} href={`#${n.toLowerCase()}`} className="hover:text-white transition-colors">
                 {n}
@@ -78,7 +78,7 @@ export default function Home() {
           </nav>
           <button
             type="button"
-            className="hidden md:inline-flex shrink-0 text-[11px] tracking-[0.14em] uppercase border border-[#810100] text-[#EDEBDD] px-5 py-2.5 hover:bg-[#810100]/10 transition-colors"
+            className="hidden md:inline-flex shrink-0 font-sans text-[11px] tracking-[0.14em] uppercase border border-[#810100] text-[#EDEBDD] px-5 py-2.5 hover:bg-[#810100]/10 transition-colors"
           >
             View CV
           </button>
@@ -86,49 +86,69 @@ export default function Home() {
       </header>
 
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "var(--gradient-radial-red)" }} />
-        <div className="relative max-w-6xl mx-auto px-6 pt-16 pb-24">
-          <div className="flex items-center gap-3 mb-12 text-xs tracking-widest uppercase">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
-            </span>
-            <span className="text-primary">Available for new projects</span>
-            <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="relative max-w-7xl mx-auto px-12 pt-12 pb-24">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <div className="eyebrow mb-6">✦ Hello, I&apos;m Airish</div>
-              <h1 className="text-6xl md:text-7xl leading-[1.05] mb-8">
-                Crafting<br />
-                <span className="italic-serif">Experiences</span><br />
+              <div className="inline-flex items-center gap-2.5 border border-[#810100] px-3 py-1.5 mb-8 font-sans text-[10px] tracking-[0.14em] uppercase text-[#EDEBDD]">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0" />
+                Available for new projects
+              </div>
+
+              <div className="flex items-center gap-3 mb-6 font-sans text-[10px] tracking-[0.14em] uppercase text-primary">
+                <span className="h-px w-8 bg-primary shrink-0" />
+                UI/UX & Creative Designer
+              </div>
+
+              <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] leading-[1.05] mb-8 text-[#EDEBDD]">
+                Crafting
+                <br />
+                <span className="italic text-primary">Experiences</span>
+                <br />
                 that Matter
               </h1>
-              <p className="text-muted-foreground max-w-md mb-10 leading-relaxed">
+
+              <p className="text-[#EDEBDD]/75 max-w-md mb-12 leading-relaxed text-sm md:text-[15px]">
                 I design thoughtful digital products and visual identities that balance bold aesthetics with intuitive usability. Based in Iloilo, working globally.
               </p>
-              <div className="flex gap-10">
+
+              <div className="flex gap-10 md:gap-12">
                 {[
-                  { n: "6", l: "Years\nExperience" },
-                  { n: "10", l: "Big\nBrands" },
-                  { n: "4", l: "Big\nProjects" },
+                  { n: "6", l: "Years Experience" },
+                  { n: "10", l: "B2B Brands" },
+                  { n: "4", l: "B2C Projects" },
                 ].map((s) => (
                   <div key={s.l}>
-                    <div className="font-serif text-4xl text-primary">{s.n}</div>
-                    <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1 whitespace-pre-line">{s.l}</div>
+                    <div className="font-serif text-4xl md:text-5xl text-[#EDEBDD] leading-none">
+                      {s.n}
+                      <span className="text-primary text-2xl md:text-3xl">+</span>
+                    </div>
+                    <div className="font-sans text-[10px] uppercase tracking-[0.14em] text-[#EDEBDD]/65 mt-2">{s.l}</div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="relative">
-              <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full" />
-              <Image
-                src={heroImg}
-                alt="Red glass spheres"
-                className="relative rounded-2xl object-cover w-full aspect-square shadow-[var(--shadow-card)]"
-                priority
-              />
+
+            <div className="relative w-full aspect-[4/5] md:aspect-square">
+              <div className="grid grid-cols-4 gap-[3px] h-full">
+                {[0, -14, 10, -8].map((offset, i) => (
+                  <div
+                    key={i}
+                    className="relative overflow-hidden"
+                    style={{ transform: `translateY(${offset}px)` }}
+                  >
+                    <div
+                      className="absolute inset-0 bg-cover bg-no-repeat"
+                      style={{
+                        backgroundImage: `url(${heroImg.src})`,
+                        backgroundSize: "400% 100%",
+                        backgroundPosition: `${(i / 3) * 100}% center`,
+                      }}
+                      role={i === 0 ? "img" : undefined}
+                      aria-label={i === 0 ? "Red glass spheres" : undefined}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
