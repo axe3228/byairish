@@ -81,7 +81,7 @@
 
   --gradient-radial-red: radial-gradient(circle at 50% 0%, rgb(129 1 0 / 0.35), transparent 60%);
   --gradient-work-card: linear-gradient(180deg, rgb(27 23 23 / 0) 0%, #1B1717 100%);
-  --work-card-tint: #8101001A;
+  --work-card-tint: #81010066;
   --shadow-glow: 0 0 60px -10px rgb(129 1 0 / 0.4);
   --shadow-card: 0 1px 0 0 oklch(1 0 0 / 0.04) inset, 0 20px 40px -20px oklch(0 0 0 / 0.6);
 }
