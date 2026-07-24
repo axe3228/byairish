@@ -1,4 +1,3 @@
-import heroImg from "@/assets/hero-spheres.jpg";
 import { heroPanelOffsets, heroStats } from "@/data/content";
 
 export function Hero() {
@@ -53,7 +52,7 @@ export function Hero() {
                   <div
                     className="absolute inset-0 bg-cover bg-no-repeat"
                     style={{
-                      backgroundImage: `url(${heroImg.src})`,
+                        backgroundImage: "url(/images/hero-spheres.jpg)",
                       backgroundSize: "400% 100%",
                       backgroundPosition: `${(i / 3) * 100}% center`,
                     }}

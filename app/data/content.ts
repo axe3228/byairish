@@ -42,13 +42,57 @@ export const experiences = [
   },
 ];
 
-export const projects = [
-  { title: "MySchool Suite", tag: "UI/UX · PRODUCT DESIGN", image: "@/assets/work/work-myschool-suite.png", category: "UI/UX" },
-  { title: "Ladmins", tag: "UI/UX · ADMIN INTERFACE", color: "from-slate-800 to-zinc-950", category: "B2B" },
-  { title: "Brand Stylescapes", tag: "BRANDING · IDENTITY", color: "from-indigo-900 to-slate-950", category: "Branding" },
-  { title: "Innovate Charlotte", tag: "BRAND · IDENTITY", color: "from-violet-900 to-purple-950", category: "Branding" },
-  { title: "Kumik Telecom", tag: "BRANDING · ADVERTISING", color: "from-orange-900 to-red-950", category: "Branding" },
-  { title: "ZIP", tag: "B2C · ECOMMERCE", color: "from-sky-900 to-blue-950", category: "B2C" },
+export type Project = {
+  title: string;
+  tag: string;
+  description: string;
+  image: string;
+  category: string;
+};
+
+export const projects: Project[] = [
+  {
+    title: "MySchool Suite",
+    tag: "UI/UX · PRODUCT DESIGN",
+    description: "A unified school management platform designed to simplify operations for educators, admins, and families.",
+    image: "/images/work/myschool-suite.png",
+    category: "UI/UX",
+  },
+  {
+    title: "Ladmins",
+    tag: "UI/UX · ADMIN INTERFACE",
+    description: "A clean, scalable admin dashboard built for clarity, speed, and day-to-day operational workflows.",
+    image: "/images/work/ladmins.png",
+    category: "B2B",
+  },
+  {
+    title: "Brand Stylescapes",
+    tag: "BRANDING · IDENTITY",
+    description: "Visual direction explorations that define tone, typography, and identity before a brand goes to market.",
+    image: "/images/work/brand-stylescapes.png",
+    category: "Branding",
+  },
+  {
+    title: "Innovate Charlotte",
+    tag: "BRAND · IDENTITY",
+    description: "Brand identity work for a community innovation initiative — bold, approachable, and built to inspire action.",
+    image: "/images/work/innovate-charlotte.png",
+    category: "Branding",
+  },
+  {
+    title: "Kumik Telecom",
+    tag: "BRANDING · ADVERTISING",
+    description: "Campaign-ready brand and advertising assets for a telecom brand entering a competitive regional market.",
+    image: "/images/work/kumik-telecom.png",
+    category: "Branding",
+  },
+  {
+    title: "ZIP",
+    tag: "B2C · ECOMMERCE",
+    description: "A consumer-facing ecommerce experience focused on fast browsing, strong product storytelling, and conversion.",
+    image: "/images/work/zip.png",
+    category: "B2C",
+  },
 ];
 
 export const filters = ["B2B", "B2C", "Branding", "UI/UX", "All"];

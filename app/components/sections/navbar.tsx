@@ -1,5 +1,4 @@
 import Image from "next/image";
-import logo from "@/assets/logo.svg";
 import { nav } from "@/data/content";
 
 export function Navbar() {
@@ -7,7 +6,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 bg-iris-noir-black">
       <div className="max-w-7xl mx-auto px-12 py-5 flex items-center gap-8">
         <a href="#" aria-label="Airish Absin home" className="shrink-0">
-          <Image src={logo} alt="Airish Absin" width={179} height={25} priority />
+          <Image src="/images/logo.svg" alt="Airish Absin" width={179} height={25} priority />
         </a>
         <nav className="hidden md:flex flex-1 items-center justify-evenly font-sans text-[11px] tracking-[0.14em] uppercase text-iris-cotton">
           {nav.map((n) => (

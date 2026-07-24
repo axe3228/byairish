@@ -3,10 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import { filters, projects } from "@/data/content";
-import { toPublicPath } from "@/lib/paths";
 
 export function Work() {
-  const [filter, setFilter] = useState("B2B");
+  const [filter, setFilter] = useState("All");
   const filtered = filter === "All" ? projects : projects.filter((p) => p.category === filter);
 
   return (
@@ -47,17 +46,13 @@ export function Work() {
               type="button"
               className="group relative aspect-[4/5] overflow-hidden bg-iris-noir-black text-left transition-transform duration-300 hover:-translate-y-1"
             >
-              {"image" in p && p.image ? (
-                <Image
-                  src={toPublicPath(p.image)}
-                  alt={p.title}
-                  fill
-                  className="object-cover object-top z-0"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-              ) : (
-                <div className={`absolute inset-0 z-0 bg-gradient-to-br ${"color" in p ? p.color : "from-slate-800 to-zinc-950"}`} />
-              )}
+              <Image
+                src={p.image}
+                alt={p.title}
+                fill
+                className="object-contain object-center z-0 size-full"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
               <div className="work-card-gradient absolute inset-0 z-10 pointer-events-none" />
               <div className="work-card-tint absolute inset-0 z-[11] pointer-events-none" />
               <div className="absolute inset-0 z-20 flex flex-col justify-end p-8 pointer-events-none">
@@ -65,6 +60,7 @@ export function Work() {
                   {p.tag}
                 </div>
                 <h3 className="font-serif text-4xl leading-[0.95] text-iris-cotton">{p.title}</h3>
+                <p className="font-sans text-sm text-iris-cotton/75 leading-snug mt-3 line-clamp-2">{p.description}</p>
               </div>
             </button>
           ))}
