@@ -2,14 +2,19 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { filters, projects } from "@/data/content";
+import { Maximize2 } from "lucide-react";
+import { WorkModal } from "../work-modal";
+import { filters, projects, type Project } from "@/data/content";
 
 export function Work() {
   const [filter, setFilter] = useState("All");
-  const filtered = filter === "All" ? projects : projects.filter((p) => p.category === filter);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const filtered =
+    filter === "All" ? projects : projects.filter((p) => p.tags.includes(filter));
 
   return (
-    <section id="work" className="border-t border-border/50">
+    <>
+      <section id="work" className="border-t border-border/50">
       <div className="max-w-7xl mx-auto px-12 py-24">
         <div className="flex items-end justify-between flex-wrap gap-6 mb-12">
           <div>
@@ -39,33 +44,47 @@ export function Work() {
             ))}
           </div>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="max-h-[calc(375px*2+1.25rem)] overflow-y-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {filtered.map((p) => (
             <button
               key={p.title}
               type="button"
-              className="group relative aspect-[4/5] overflow-hidden bg-iris-noir-black text-left transition-transform duration-300 hover:-translate-y-1"
+              onClick={() => setSelectedProject(p)}
+              onDragStart={(e) => e.preventDefault()}
+              className="group relative h-[375px] max-h-[375px] w-full overflow-hidden bg-iris-noir-black text-left cursor-pointer select-none transition-transform duration-300 hover:-translate-y-1"
             >
+              <div className="absolute top-4 right-4 z-30 flex items-center gap-2 border border-iris-cotton/40 bg-iris-noir-black/60 px-3 py-1.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
+                <span className="font-syncopate text-[10px] uppercase tracking-[0.15em] text-iris-cotton">View</span>
+                <Maximize2 size={14} className="text-iris-cotton" strokeWidth={1.5} />
+              </div>
               <Image
                 src={p.image}
                 alt={p.title}
                 fill
-                className="object-contain object-center z-0 size-full"
+                draggable={false}
+                className="object-cover object-center z-0 size-full pointer-events-none"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
               <div className="work-card-gradient absolute inset-0 z-10 pointer-events-none" />
               <div className="work-card-tint absolute inset-0 z-[11] pointer-events-none" />
               <div className="absolute inset-0 z-20 flex flex-col justify-end p-8 pointer-events-none">
-                <div className="font-syncopate text-[12px] uppercase tracking-[0.15em] text-iris-cotton mb-3">
+                <div className="font-syncopate text-[11px] uppercase tracking-[0.15em] text-iris-cotton mb-3">
                   {p.tag}
                 </div>
-                <h3 className="font-serif text-4xl leading-[0.95] text-iris-cotton">{p.title}</h3>
-                <p className="font-sans text-sm text-iris-cotton/75 leading-snug mt-3 line-clamp-2">{p.description}</p>
+                <h3 className="font-serif text-[26px] leading-[0.95] text-iris-cotton">{p.title}</h3>
+                <p className="font-sans text-base text-iris-cotton/75 leading-snug mt-3 opacity-0 translate-y-2 max-h-0 overflow-hidden transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 group-hover:max-h-24">
+                  {p.description}
+                </p>
               </div>
             </button>
           ))}
+          </div>
         </div>
       </div>
-    </section>
+      </section>
+
+      <WorkModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+    </>
   );
 }

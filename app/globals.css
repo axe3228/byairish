@@ -81,7 +81,9 @@
 
   --gradient-radial-red: radial-gradient(circle at 50% 0%, rgb(129 1 0 / 0.35), transparent 60%);
   --gradient-work-card: linear-gradient(180deg, rgb(27 23 23 / 0) 0%, #1B1717 100%);
-  --work-card-tint: #81010066;
+  --gradient-work-card-hover: linear-gradient(180deg, rgb(27 23 23 / 0.35) 0%, rgb(27 23 23 / 0.98) 100%);
+  --work-card-tint: #8101001A;
+  --work-card-tint-hover: #810100b3;
   --shadow-glow: 0 0 60px -10px rgb(129 1 0 / 0.4);
   --shadow-card: 0 1px 0 0 oklch(1 0 0 / 0.04) inset, 0 20px 40px -20px oklch(0 0 0 / 0.6);
 }
@@ -113,9 +115,17 @@
   .surface-elevated { background-color: var(--surface-elevated); }
   .work-card-gradient {
     background-image: var(--gradient-work-card);
+    transition: background-image 0.3s ease;
+  }
+  .group:hover .work-card-gradient {
+    background-image: var(--gradient-work-card-hover);
   }
   .work-card-tint {
     background-color: var(--work-card-tint);
+    transition: background-color 0.3s ease;
+  }
+  .group:hover .work-card-tint {
+    background-color: var(--work-card-tint-hover);
   }
   .eyebrow {
     font-family: var(--font-syncopate);
